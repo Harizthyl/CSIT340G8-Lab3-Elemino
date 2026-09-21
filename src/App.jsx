@@ -2,34 +2,29 @@ const Header = (props) => {
   return <h1>{props.course}</h1>;
 };
 
+const Part = (props) => {
+  return (
+    <p>
+      {props.name}
+      <br></br>
+      Units: {props.units}
+    </p>
+  )
+}
+
 const Content = (props) => {
   return (
     <div>
       <hr />
 
-      <p>
-        {props.subject1}
-        <br />
-        Units: {props.units1}
-      </p>
-
-      <p>
-        {props.subject2}
-        <br />
-        Units: {props.units2}
-      </p>
-
-      <p>
-        {props.subject3}
-        <br />
-        Units: {props.units3}
-      </p>
+      <Part name={props.subject1} units={props.units1} />
+      <Part name={props.subject2} units={props.units2} />
+      <Part name={props.subject3} units={props.units3} />
 
       <hr />
     </div>
-  );
-};
-
+  )
+}
 const Total = (props) => {
   return <p>Total Number of Units: {props.total}</p>;
 };
