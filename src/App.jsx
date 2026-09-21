@@ -1,26 +1,82 @@
+const Header = (props) => {
+  return <h1>{props.course}</h1>;
+};
+
+const Content = (props) => {
+  return (
+    <div>
+      <hr />
+
+      <p>
+        {props.subject1}
+        <br />
+        Units: {props.units1}
+      </p>
+
+      <p>
+        {props.subject2}
+        <br />
+        Units: {props.units2}
+      </p>
+
+      <p>
+        {props.subject3}
+        <br />
+        Units: {props.units3}
+      </p>
+
+      <hr />
+    </div>
+  );
+};
+
+const Total = (props) => {
+  return <p>Total Number of Units: {props.total}</p>;
+};
+
+const Footer = (props) => {
+  return (
+    <footer>
+      {props.name} - {props.courseCode} - {props.section}
+    </footer>
+  );
+};
+
 const App = () => {
-  
-  const course = "Half Stack application development";
-  const part1 = "Fundamentals of React";
-  const exercises1 = 10;
-  const part2 = "Using props to pass data";
-  const exercises2 = 7;
-  const part3 = "State of a component";
-  const exercises3 = 14;
+  // Course
+  const course = "Bachelor of Science in Information Technology";
+
+  // Subjects
+  const subject1 = "CSIT327: Information Management 2";
+  const units1 = 3;
+
+  const subject2 = "IT365: Data Analytics";
+  const units2 = 3;
+
+  const subject3 = "IT317: Project Management";
+  const units3 = 3;
+
+  // Footer information
+  const name = "Briar Rovic Z. Elemino";
+  const courseCode = "CSIT340";
+  const section = "G8";
 
   return (
     <div>
-      <h1>{course}</h1>
-      <p>
-        {part1} {exercises1}
-      </p>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+      <Header course={course} />
+
+      <Content
+        subject1={subject1}
+        units1={units1}
+        subject2={subject2}
+        units2={units2}
+        subject3={subject3}
+        units3={units3}
+      />
+
+      <Total total={units1 + units2 + units3} />
+
+      <Footer name={name} courseCode={courseCode} section={section} />
     </div>
   );
 };
